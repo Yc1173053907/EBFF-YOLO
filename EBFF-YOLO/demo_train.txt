@@ -1,0 +1,14 @@
+#python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRyolo_noFocus.yaml --super --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 4 --input_mode RGB+IR
+#python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRyolo_MF.yaml --super --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 64 --input_mode RGB+IR+MF
+
+#python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRyolo_noFocus_small.yaml --super --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 3 --input_mode RGB
+#python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRyolo_noFocus_small.yaml --super --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 3 --input_mode IR
+
+# python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\yolov5_custom.yaml --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 3 --input_mode IR
+python train.py --cfg D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\yolov7_tiny_MF_C3FEM.yaml --train_img_size 1024 --hr_input --data D:\soft\study\model\yolov8\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 3 --input_mode IR
+python train.py --cfg E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\yolov7_tiny_MF_C3FEM.yaml --train_img_size 1024 --hr_input --data E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 64 --input_mode RGB+IR+MF --batch_size 4
+
+python train.py --cfg E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\yolov8_MF_C2fDBB.yaml --train_img_size 1024 --hr_input --data E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 64 --input_mode RGB+IR+MF --batch_size 4
+python test.py --weights runs/train/exp/weights/best.pt --input_mode RGB+IR+MF
+
+python train.py --cfg E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\yolov8_MF_C3DBB.yaml --train_img_size 1024 --hr_input --data E:\project_zhangzhen\SuperYOLO-improve\datasets\VEDAI\CFG\SRvedai.yaml --ch 64 --input_mode RGB+IR+MF --batch_size 4

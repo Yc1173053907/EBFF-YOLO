@@ -1,0 +1,11 @@
+
+# train: D:/soft/study/my_project/yolo_detection/SuperYOLO-main/datasets/VEDAI/fold01_write.txt
+train: E:/project_zhangzhen/SuperYOLO-improve/datasets/VEDAI/class_datasets/fold01_write.txt
+test: E:/project_zhangzhen/SuperYOLO-improve/datasets/VEDAI/class_datasets/fold01test_write.txt
+val: E:/project_zhangzhen/SuperYOLO-improve/datasets/VEDAI/class_datasets/fold01test_write.txt
+
+# number of classes
+nc: 8
+
+# class names
+names: ['car', 'pickup', 'camping','truck', 'other', 'tractor', 'boat', 'van']

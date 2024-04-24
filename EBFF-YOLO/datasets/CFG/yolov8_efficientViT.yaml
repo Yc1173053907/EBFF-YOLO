@@ -1,0 +1,41 @@
+# parameters
+nc: 8  # number of classes
+depth_multiple: 0.33  # model depth multiple
+width_multiple: 0.50  # layer channel multiple
+
+# anchors
+anchors:
+  - [10,13, 16,30, 33,23]  # P3/8
+  - [30,61, 62,45, 59,119]  # P4/16
+  - [116,90, 156,198, 373,326]  # P5/32
+
+l1: 4
+l2: 8
+c1: 128
+c2: 512
+
+# YOLOv8.0n backbone
+backbone:
+  - [-1, 1, MFs, [3]]
+  - [-1, 1, efficientvit_b0, []]  # 4
+  - [-1, 1, SPPF, [1024, 5]]  # 5
+
+# YOLOv8.0n head
+head:
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']] # 6
+  - [[-1, 4], 1, Concat, [1]]  # 7 cat backbone P4
+  - [-1, 3, C2f, [512]]  # 8
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']] # 9
+  - [[-1, 3], 1, Concat, [1]]  # 10 cat backbone P3
+  - [-1, 3, C2f, [256]]  # 11 (P3/8-small)
+
+  - [-1, 1, Conv, [256, 3, 2]] # 12
+  - [[-1, 9], 1, Concat, [1]]  # 13 cat head P4
+  - [-1, 3, C2f, [512]]  # 14 (P4/16-medium)
+
+  - [-1, 1, Conv, [512, 3, 2]] # 15
+  - [[-1, 6], 1, Concat, [1]]  # 16 cat head P5
+  - [-1, 3, C2f, [1024]]  # 17 (P5/32-large)
+
+  - [[12, 15, 18], 1, Detect, [nc, anchors]]  # Detect(P3, P4, P5)
